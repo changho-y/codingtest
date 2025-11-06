@@ -7,7 +7,6 @@ public class AdivB {
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		System.out.println((float)a/b);
-
 	}
 
 }
