@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class OvenClock {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int time = sc.nextInt();
+		int min = a*60+b;
+		min = min+time;
+		int hour = 0;
+		int minute = min%60;
+
+		if(min>=1440) {
+			hour = (min/60)%24;
+			System.out.println(hour+" "+minute);
+		} else {
+			 hour = min/60;
+			 System.out.println(hour+" "+minute);
+		}
+	}
+
+}
