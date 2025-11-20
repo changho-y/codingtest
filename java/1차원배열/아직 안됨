@@ -32,7 +32,7 @@ public class Main {
 					min = Integer.parseInt(str[i]);
 				}
 			}
-
+.
 			bw.flush();
 			bw.close();
 			br.close();
