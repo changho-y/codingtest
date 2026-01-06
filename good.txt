@@ -1,3 +1,5 @@
 import java.io.BufferedReader;
 
-public void static main(String[] args) throws IOException
+public void static main(String[] args) throws IOException {
+   
+}
