@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int max = 0;
+		int max = Integer.MIN_VALUE;
 		int index = 0;
 		
 		for(int i=0; i<9; i++) {
