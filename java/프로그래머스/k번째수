@@ -1,0 +1,23 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+        
+        // array를 commands[i]로 자르고 해당 값들을 출력
+        for(int i=0; i<commands.length; i++){
+            int start = commands[i][0]-1;
+            int end = commands[i][1];
+            int r = commands[i][2]-1;
+            
+            //자르기
+            int[] temp = Arrays.copyOfRange(array, start, end);
+            //정렬
+            Arrays.sort(temp);
+            //r번째 값
+            answer[i] = temp[r];
+        }
+        
+        return answer;
+    }
+}
