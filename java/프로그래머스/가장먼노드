@@ -1,0 +1,50 @@
+class Solution {
+
+    public int solution(int n, int[][] edge) {
+        int[] distance = new int[n + 1];
+        Arrays.fill(distance, n);
+        distance[1] = 0;
+
+        Map<Integer, Set<Integer>> dirMap = new HashMap<>();
+        for (int[] e : edge) {
+            dirMap.computeIfAbsent(e[0], k -> new HashSet<>()).add(e[1]);
+            dirMap.computeIfAbsent(e[1], k -> new HashSet<>()).add(e[0]);
+        }
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>((i, j) -> i[1] - j[1]);
+        pq.add(new int[] {1, 0});
+
+        // 우선순위 큐를 이용한 다익스트라 탐색
+        while (!pq.isEmpty()) {
+            int[] cur = pq.poll();
+            int node = cur[0], dist = cur[1];
+
+            // 이미 더 짧은 경로로 방문했으면 스킵
+            if (dist > distance[node]) continue;
+
+            for (int nextNode : dirMap.get(node)) {
+                int nextDist = dist + 1;
+                // 더 짧은 경로 발견 시 갱신
+                if (nextDist < distance[nextNode]) {
+                    distance[nextNode] = nextDist;
+                    pq.add(new int[] {nextNode, nextDist});
+                }
+            }
+        }
+
+        // 최대 거리 구하기
+        int maxDist = 0;
+        for (int i = 2; i <= n; i++) {
+            maxDist = Math.max(maxDist, distance[i]);
+        }
+
+        // 최대 거리인 노드 개수 카운트
+        int count = 0;
+        for (int i = 2; i <= n; i++) {
+            if (distance[i] == maxDist) count++;
+        }
+
+        return count;
+    }
+
+}
