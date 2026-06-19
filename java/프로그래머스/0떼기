@@ -1,0 +1,19 @@
+class Solution {
+    public String solution(String n_str) {
+        String answer = "";
+        int cnt = 0;
+        
+        String str[] = n_str.split("");
+        
+        for (int i = 0; i < n_str.length(); i++) {
+            if (!str[i].equals("0")) {
+                break;
+            } else {
+                cnt++;
+            }
+        }
+        answer = n_str.substring(cnt);
+        
+        return answer;
+    }
+}
