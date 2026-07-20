@@ -1,10 +1,6 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
-// spoiler_ranges_rows는 2차원 배열 spoiler_ranges의 행 길이, spoiler_ranges_cols는 2차원 배열 spoiler_ranges의 열 길이입니다.
-// 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
-int solution(const char* message, int** spoiler_ranges, size_t spoiler_ranges_rows, size_t spoiler_ranges_cols) {
-    int answer = 0;
-    return answer;
+class Solution {
+    public int solution(String message, int[][] spoiler_ranges) {
+        int answer = 0;
+        return answer;
+    }
 }
