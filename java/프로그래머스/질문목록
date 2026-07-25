@@ -1,0 +1,23 @@
+class Solution {
+
+    public int solution(int[] priorities, int location) {
+        TreeMap<Integer, Integer> map = new TreeMap<>(Comparator.reverseOrder());
+        Queue<int[]> que = new LinkedList<>();
+
+        for (int i = 0; i < priorities.length; i++) {
+            map.merge(priorities[i], 1, Integer::sum);
+            que.add(new int[] {priorities[i], i});
+        }
+
+        while (!que.isEmpty()) {
+            while (que.peek()[0] != map.firstKey()) que.add(que.poll());
+
+            if (que.peek()[1] == location) break;
+            que.poll();
+            map.merge(map.firstKey(), -1, Integer::sum);
+            if (map.firstEntry().getValue() == 0) map.remove(map.firstKey());
+        }
+
+        return priorities.length - que.size() + 1;
+    }
+}
